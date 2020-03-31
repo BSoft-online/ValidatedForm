@@ -1,14 +1,14 @@
 import React from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { Container } from '@material-ui/core';
+import { CenteredContainer } from 'components/centeredContainer';
 
 const Home: NextPage = () => (
     <>
         <Head>
             <title>Validated Form</title>
         </Head>
-        <Container>TEST</Container>
+        <CenteredContainer>TEST</CenteredContainer>
     </>
 );
 
