@@ -1,4 +1,4 @@
-export const cssBaselineStyles = (palette): object => ({
+export const cssBaseLineStyles = (palette): object => ({
     '@global': {
         body: {
             color: palette.common.black,

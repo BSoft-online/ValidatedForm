@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { cssBaselineStyles } from './cssBaseLine';
+import { cssBaseLineStyles } from './cssBaseLine';
 
 const palette = {
     common: {
@@ -10,6 +10,6 @@ const palette = {
 export const theme = createMuiTheme({
     palette,
     overrides: {
-        MuiCssBaseline: cssBaselineStyles(palette),
+        MuiCssBaseline: cssBaseLineStyles(palette),
     },
 });
