@@ -1,11 +1,16 @@
 import { randomBool } from 'utils/helpers';
 
-export const login = async (email: string): Promise<object> => {
+type ServiceResult = {
+    error?: string;
+    result?: string;
+};
+
+export const login = async (email: string): Promise<ServiceResult> => {
     await new Promise((res) => {
         setTimeout(() => res(), 1000);
     });
 
     return randomBool()
-        ? { email }
+        ? { result: email }
         : { error: 'Server error occured. Please try again later' };
 };

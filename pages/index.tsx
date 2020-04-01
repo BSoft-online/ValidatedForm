@@ -2,13 +2,16 @@ import React from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { CenteredContainer } from 'components/centeredContainer';
+import { Form } from 'features/form';
 
 const Home: NextPage = () => (
     <>
         <Head>
             <title>Validated Form</title>
         </Head>
-        <CenteredContainer>TEST</CenteredContainer>
+        <CenteredContainer>
+            <Form />
+        </CenteredContainer>
     </>
 );
 
