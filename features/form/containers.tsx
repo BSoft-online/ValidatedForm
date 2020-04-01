@@ -8,6 +8,9 @@ export const Container = styled(Paper)(({ theme }: { theme: Theme }) => ({
     marginBottom: '50px',
     backgroundColor: theme.palette.grey[100],
     minWidth: '300px',
+    [theme.breakpoints.up('md')]: {
+        width: '400px',
+    },
 }));
 
 export const Fieldset = styled('fieldset')({
@@ -21,6 +24,7 @@ export const ButtonsPanel = styled('div')(({ theme }: { theme: Theme }) => ({
     textAlign: 'center',
     alignItems: 'center',
     '& button': {
+        position: 'relative',
         [theme.breakpoints.down('sm')]: {
             width: '100%',
         },
@@ -31,7 +35,9 @@ export const ButtonsPanel = styled('div')(({ theme }: { theme: Theme }) => ({
     '& .loader': {
         width: '18px',
         height: '18px',
-        marginRight: '9px',
-        marginLeft: '-9px',
+        color: theme.palette.primary.light,
+        position: 'absolute',
+        left: '20px',
+        top: '9px',
     },
 }));

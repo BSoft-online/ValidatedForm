@@ -79,7 +79,7 @@ export const Form: React.FunctionComponent = () => {
                     <Button
                         variant="contained"
                         color="primary"
-                        disabled={!!(emailError || passwordError)}
+                        disabled={!!(emailError || passwordError || loading)}
                         fullWidth={false}
                         onClick={handleSubmit(setters, email)}
                     >

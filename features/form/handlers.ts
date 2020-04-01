@@ -36,6 +36,7 @@ export const handleSubmit = (
     const { result, error } = await login(email);
     setters.setServiceError(error ? error : '');
     result && setters.setServiceResponse(result);
+    setters.setLoading(false);
 };
 
 export const handleLogout = (setters: Setters) => (): void => {
