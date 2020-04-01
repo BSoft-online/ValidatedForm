@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --ignore-path .gitignore . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint --cache --fix --ignore-path .gitignore . --ext .ts,.tsx,.js,.jsx"
   },
   "repository": {
     "type": "git",

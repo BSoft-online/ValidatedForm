@@ -1,7 +1,7 @@
-export const cssBaseLineStyles = (palette): object => ({
+export const cssBaseLineStyles = (mainColor: string): object => ({
     '@global': {
         body: {
-            color: palette.common.black,
+            color: mainColor,
             fontSize: '16px',
         },
 

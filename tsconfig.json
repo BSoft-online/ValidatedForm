@@ -8,7 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -19,11 +19,11 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["./components/*"],
-      "@features/*": ["./features/*"],
-      "@utils/*": ["./utils/*"],
-      "@services/*": ["./services/*"],
-      "@config/*": ["./config/*"],
+      "components/*": ["./components/*"],
+      "features/*": ["./features/*"],
+      "utils/*": ["./utils/*"],
+      "services/*": ["./services/*"],
+      "config/*": ["./config/*"],
     }
   },
   "exclude": [

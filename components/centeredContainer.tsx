@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Theme } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
+
+type Props = {
+    children?: React.ReactNode;
+};
 
 const useStyles = makeStyles((theme: Theme) => ({
     container: {
@@ -20,7 +24,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }));
 
-export const CenteredContainer = ({ children }): JSX.Element => {
+export const CenteredContainer: FunctionComponent<Props> = ({
+    children,
+}): JSX.Element => {
     const classes = useStyles();
     return (
         <Grid
