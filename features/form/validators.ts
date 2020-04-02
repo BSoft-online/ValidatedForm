@@ -6,6 +6,8 @@ export const emailRequiredError = 'Email address is required';
 export const passwordInvalidError = 'Password is too short';
 export const passwordRequiredError = 'Password is required';
 
+export const MIN_PASSWORD_LENGTH = 5;
+
 export const validateEmail = (email = ''): string =>
     email.trim()
         ? checkEmail(email)
@@ -15,7 +17,7 @@ export const validateEmail = (email = ''): string =>
 
 export const validatePassword = (password = ''): string =>
     password.trim()
-        ? password.length < 5
+        ? password.length < MIN_PASSWORD_LENGTH
             ? passwordInvalidError
             : ''
         : passwordRequiredError;

@@ -20,6 +20,7 @@ export const theme = createMuiTheme({
     palette: {
         passStrength: {
             none: '#d8d8d8',
+            short: '#f03434',
             bad: '#f03434',
             weak: '#ffb600',
             enough: '#ffb600',

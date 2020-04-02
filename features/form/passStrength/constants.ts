@@ -1,5 +1,6 @@
 export const scoreToName = [
     'none', // no password at all
+    'short', // password is too short
     'bad', // zxcvbn score === 0
     'weak', // zxcvbn score === 1
     'enough', // zxcvbn score === 2
@@ -10,11 +11,12 @@ export const scoreToName = [
 type Dictionary = { [index: string]: string };
 export const scoreMessage: Dictionary = {
     none: '',
-    bad: 'Very weak password',
-    weak: 'Weak password',
-    enough: 'Normal password',
-    good: 'Strong password',
-    strong: 'Very strong password!',
+    short: 'Too short',
+    bad: 'Very weak',
+    weak: 'Weak',
+    enough: 'Good',
+    good: 'Strong',
+    strong: 'Very strong!',
 };
 
 const makeClasses = (c: string): string[] => scoreToName.map((v) => `${c}${v}`);

@@ -1,6 +1,10 @@
 import React from 'react';
 import { login } from 'services/auth';
-import { validateEmail, validatePassword } from './validators';
+import {
+    validateEmail,
+    validatePassword,
+    MIN_PASSWORD_LENGTH,
+} from './validators';
 
 type Setters = {
     setEmail: React.Dispatch<React.SetStateAction<string>>;
@@ -30,7 +34,11 @@ export const handlePasswordChange = ({
 }) => (e: React.ChangeEvent<HTMLInputElement>): void => {
     const text = e.currentTarget.value;
     const passwordScore =
-        !text || !checkPassword ? 0 : checkPassword(text).score + 1;
+        !text || !checkPassword
+            ? 0
+            : text.length < MIN_PASSWORD_LENGTH
+            ? 1
+            : checkPassword(text).score + 2;
     setters.setPasswordScore(passwordScore);
     setters.setPassword(text);
     setters.setPasswordError(validatePassword(text));
