@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
     Typography,
     OutlinedInput,
@@ -14,6 +14,7 @@ import {
     handlePasswordChange,
     handleSubmit,
 } from './handlers';
+import { PassStrength } from './passStrength';
 
 export const Form: React.FunctionComponent = () => {
     const [email, setEmail] = useState('');
@@ -23,6 +24,15 @@ export const Form: React.FunctionComponent = () => {
     const [serviceError, setServiceError] = useState('');
     const [serviceResponse, setServiceResponse] = useState('');
     const [loading, setLoading] = useState(false);
+    const [passwordScore, setPasswordScore] = useState(0);
+    const checkPassword = useRef<Function>();
+
+    useEffect(() => {
+        (async (): Promise<void> => {
+            const { default: zxcvbn } = await import('zxcvbn');
+            checkPassword.current = zxcvbn;
+        })();
+    }, []);
 
     const setters = {
         setEmail,
@@ -32,6 +42,7 @@ export const Form: React.FunctionComponent = () => {
         setServiceError,
         setServiceResponse,
         setLoading,
+        setPasswordScore,
     };
 
     return serviceResponse ? (
@@ -67,10 +78,14 @@ export const Form: React.FunctionComponent = () => {
                         name="password"
                         required
                         placeholder="Your password"
-                        onChange={handlePasswordChange(setters)}
+                        onChange={handlePasswordChange({
+                            setters,
+                            checkPassword: checkPassword.current,
+                        })}
                         value={password}
                         fullWidth
                     />
+                    <PassStrength score={passwordScore} />
                 </Label>
                 <ErrorMessage variant="body2" color="error">
                     {emailError || passwordError || serviceError}

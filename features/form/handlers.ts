@@ -10,6 +10,7 @@ type Setters = {
     setServiceError: React.Dispatch<React.SetStateAction<string>>;
     setServiceResponse: React.Dispatch<React.SetStateAction<string>>;
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    setPasswordScore: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const handleEmailChange = (setters: Setters) => (
@@ -20,10 +21,17 @@ export const handleEmailChange = (setters: Setters) => (
     setters.setEmailError(validateEmail(text));
 };
 
-export const handlePasswordChange = (setters: Setters) => (
-    e: React.ChangeEvent<HTMLInputElement>
-): void => {
+export const handlePasswordChange = ({
+    setters,
+    checkPassword,
+}: {
+    setters: Setters;
+    checkPassword: Function | undefined;
+}) => (e: React.ChangeEvent<HTMLInputElement>): void => {
     const text = e.currentTarget.value;
+    const passwordScore =
+        !text || !checkPassword ? 0 : checkPassword(text).score + 1;
+    setters.setPasswordScore(passwordScore);
     setters.setPassword(text);
     setters.setPasswordError(validatePassword(text));
 };
