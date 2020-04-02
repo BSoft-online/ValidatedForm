@@ -34,7 +34,6 @@
         {
           "root": ["./"],
           "alias": {
-            "components": "./components",
             "features": "./features",
             "utils": "./utils",
             "services": "./services",
