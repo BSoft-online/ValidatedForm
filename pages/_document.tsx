@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import BaseDocument, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
 import { theme } from 'config/theme';
 
-class MyDocument extends Document {
+class Document extends BaseDocument {
     render() {
         return (
             <html lang="pl">
@@ -32,7 +32,7 @@ class MyDocument extends Document {
     }
 }
 
-MyDocument.getInitialProps = async (ctx) => {
+Document.getInitialProps = async (ctx) => {
     const sheets = new ServerStyleSheets();
     const originalRenderPage = ctx.renderPage;
 
@@ -41,7 +41,7 @@ MyDocument.getInitialProps = async (ctx) => {
             enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
         });
 
-    const initialProps = await Document.getInitialProps(ctx);
+    const initialProps = await BaseDocument.getInitialProps(ctx);
 
     return {
         ...initialProps,
@@ -54,4 +54,4 @@ MyDocument.getInitialProps = async (ctx) => {
     };
 };
 
-export default MyDocument;
+export default Document;
