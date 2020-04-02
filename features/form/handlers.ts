@@ -1,6 +1,6 @@
 import React from 'react';
 import { login } from 'services/auth';
-import { validateEmail, validatePassword } from './functions';
+import { validateEmail, validatePassword } from './validators';
 
 type Setters = {
     setEmail: React.Dispatch<React.SetStateAction<string>>;
@@ -28,10 +28,21 @@ export const handlePasswordChange = (setters: Setters) => (
     setters.setPasswordError(validatePassword(text));
 };
 
-export const handleSubmit = (
-    setters: Setters,
-    email: string
-) => async (): Promise<void> => {
+export const handleSubmit = ({
+    setters,
+    email,
+    password,
+}: {
+    setters: Setters;
+    email: string;
+    password: string;
+}) => async (): Promise<void> => {
+    const emailError = validateEmail(email);
+    const passwordError = validatePassword(password);
+    setters.setEmailError(emailError);
+    setters.setPasswordError(passwordError);
+    if (emailError || passwordError) return;
+
     setters.setLoading(true);
     const { result, error } = await login(email);
     setters.setServiceError(error ? error : '');

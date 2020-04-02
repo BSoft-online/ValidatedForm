@@ -81,7 +81,7 @@ export const Form: React.FunctionComponent = () => {
                         color="primary"
                         disabled={!!(emailError || passwordError || loading)}
                         fullWidth={false}
-                        onClick={handleSubmit(setters, email)}
+                        onClick={handleSubmit({ setters, email, password })}
                     >
                         {loading ? (
                             <CircularProgress size={18} className="loader" />

@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore . --ext .ts,.tsx,.js,.jsx",
-    "lint:fix": "eslint --cache --fix --ignore-path .gitignore . --ext .ts,.tsx,.js,.jsx"
+    "lint:fix": "eslint --cache --fix --ignore-path .gitignore . --ext .ts,.tsx,.js,.jsx",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -34,16 +36,25 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.1.4",
     "@types/node": "^13.9.8",
     "@types/react": "^16.9.30",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
+    "babel-jest": "^25.2.4",
     "babel-plugin-module-resolver": "^4.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
+    "jest": "^25.2.4",
     "prettier": "^2.0.2",
+    "react-test-renderer": "^16.13.1",
+    "ts-jest": "^25.3.0",
     "typescript": "^3.8.3"
   }
 }
